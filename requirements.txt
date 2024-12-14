@@ -1,1 +1,6 @@
 streamlit
+pandas
+requests
+matplotlib
+plotly.express
+seaborn

@@ -1,0 +1,6 @@
+seriesID,year,period,value
+CES0000000001,2023,M01,1000000
+LNS14000000,2023,M01,4.5
+CUUR0000SA0,2023,M01,250.0
+WPUFD4,2023,M01,120.0
+Add placeholder bls_data.csv file

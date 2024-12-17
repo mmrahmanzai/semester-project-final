@@ -24,7 +24,7 @@ jobs:
 
       - name: Run BLS data fetch script
         run: |
-          python scripts/fetch_bls_data.py 
+          python semester_project_.py
 
       - name: Commit and push new data
         run: |

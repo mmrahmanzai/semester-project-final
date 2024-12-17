@@ -2,7 +2,7 @@ name: Fetch BLS Data Monthly
 
 on:
   schedule:
-    - cron: "0 0 15 * *"
+    - cron: "0 0 15 * *" 
   workflow_dispatch: 
 
 jobs:
@@ -20,11 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests pandas
+          pip install requests pandas schedule 
 
       - name: Run BLS data fetch script
         run: |
-          python semester_project_.py
+          python scripts/semester_project_.py 
 
       - name: Commit and push new data
         run: |

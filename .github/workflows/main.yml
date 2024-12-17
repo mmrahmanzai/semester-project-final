@@ -30,22 +30,3 @@ jobs:
       - name: Run Python script
         run: |
           python semester_project_.py
-
-      # Step 5: Commit and push the generated CSV file back to the repository
-      - name: Commit and push CSV file
-        run: |
-          # Set up git user
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-
-          # Add the CSV file
-          git add data/bls_data.csv
-
-          # Commit the changes
-          git commit -m "Update bls_data.csv with new data"
-
-          # Push the changes to the repository
-          git push origin main  # Make sure you're pushing to the correct branch
-        env:
-          # GitHub Actions automatically provides a token to authenticate Git operations
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

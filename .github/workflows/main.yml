@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip  # Ensure pip is up-to-date
-          pip install requests pandas schedule streamlit
+          pip install requests pandas schedule streamlit plotly
 
       # Step 4: Run the BLS data fetch script
       - name: Run BLS data fetch script

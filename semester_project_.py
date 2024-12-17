@@ -83,11 +83,3 @@ def fetch_bls_data():
       print("Not the 15th day of the month. Skipping data fetch.") # If not the specific day of the month, will inform
 
 fetch_bls_data()
-
-# Scheduling script to run daily to ensure day the script should run is not missed
-schedule.every().day.at("02:00").do(fetch_bls_data)
-
-# Keep the script running to execute the scheduled task
-while True:
-    schedule.run_pending()
-    time.sleep(1)

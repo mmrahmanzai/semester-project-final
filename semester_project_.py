@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1Ir_Awf9qAeilrOg8pxrajHdICsNW_V82
 """
 
-#API Key 313ee463bb714ba58a9e6b78f6782b21
-
-!pip install schedule==1.1.0
-
 import schedule
 import time
 import datetime

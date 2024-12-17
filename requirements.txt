@@ -4,3 +4,4 @@ requests
 matplotlib.pyplot
 plotly.express
 seaborn
+schedule

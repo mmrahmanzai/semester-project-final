@@ -21,18 +21,18 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests pandas schedule plotly streamlit
+          pip install -r requirements.txt
 
-      - name: Ensure 'data' directory exists
-        run: |
-          mkdir -p data  # Create the data directory if it doesn't exist
+       #name: Ensure 'data' directory exists
+        #run: |
+          #mkdir -p data  # Create the data directory if it doesn't exist
 
       - name: Run BLS data fetch script
         run: |
-          python semester_project_.py  # Run the script
+          python semester_project_.py 
 
-      - name: Commit and push new data
-        run: |
-          git add data/bls_data.csv
-          git commit -m "Update BLS data"
-          git push
+      #name: Commit and push new data
+        #run: |
+          #git add data/bls_data.csv
+          #git commit -m "Update BLS data"
+          #git push

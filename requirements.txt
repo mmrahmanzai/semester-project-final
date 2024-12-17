@@ -1,7 +1,6 @@
 streamlit
 pandas
 requests
-matplotlib.pyplot
 plotly.express
 seaborn
 schedule

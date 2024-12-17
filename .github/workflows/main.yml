@@ -2,7 +2,7 @@ name: Fetch BLS Data Monthly
 
 on:
   schedule:
-    - cron: "0 0 17 * *"
+    - cron: "15 * * * *"
   workflow_dispatch:   
 
 jobs:

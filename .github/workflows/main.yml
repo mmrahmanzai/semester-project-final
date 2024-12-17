@@ -1,38 +1,46 @@
-name: Fetch BLS Data Monthly
+name: Automate BLS Data Fetch
 
 on:
   schedule:
-    - cron: "*/2 * * * *"
-  workflow_dispatch:   
-
+    - cron: '*/2 * * * *'
+  workflow_dispatch:
+  
 jobs:
-  fetch_data:
+  run-bls-data-fetch:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
-      - name: Checkout code
+      # Step 1: Checkout the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Step 2: Set up Python
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.x'
 
+      # Step 3: Install dependencies (if you have a requirements.txt)
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests pandas schedule plotly streamlit
+          pip install -r requirements.txt
 
-      - name: Ensure 'data' directory exists
+      # Step 4: Run the Python script
+      - name: Run Python script
         run: |
-          mkdir -p data  # Create the data directory if it doesn't exist
-
-      - name: Run BLS data fetch script
+          python semester_project_.py
+          
+    # Step 5: Commit and push the updated CSV file
+      - name: Commit and push updated data
         run: |
-          python semester_project_.py  # Run the script
-
-      - name: Commit and push new data
-        run: |
-          git add data/bls_data.csv
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add bls_data.csv
           git commit -m "Update BLS data"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

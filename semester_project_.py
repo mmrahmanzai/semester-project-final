@@ -12,9 +12,13 @@ def fetch_bls_data():
 
     today = datetime.datetime.today() # Establishing a today's date for the start date and end date
 
+    if not os.path.exists('data'):
+        os.makedirs('data')
+    file_path = 'data/bls_data.csv'
+    
     # Prepping an if statement to run function on a certain day of the month
     if today.day == 17:
-
+    
       # Establishing what series IDs will be fetched (only doing 4 to ensure a clean visual)
       series_ids = ['CES0000000001','LNS14000000','CUUR0000SA0','WPUFD4'] #Nonfarm Payroll, Unemployment, CPI-U, PPI
 
@@ -79,11 +83,3 @@ def fetch_bls_data():
       print("Not the 15th day of the month. Skipping data fetch.") # If not the specific day of the month, will inform
 
 fetch_bls_data()
-
-# Scheduling script to run daily to ensure day the script should run is not missed
-schedule.every().day.at("02:00").do(fetch_bls_data)
-
-# Keep the script running to execute the scheduled task
-while True:
-    schedule.run_pending()
-    time.sleep(1)

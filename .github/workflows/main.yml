@@ -24,7 +24,7 @@ jobs:
 
       - name: Run BLS data fetch script
         run: |
-          python scripts/fetch_bls_data.py  # Path to your script that fetches the data
+          python scripts/fetch_bls_data.py 
 
       - name: Commit and push new data
         run: |

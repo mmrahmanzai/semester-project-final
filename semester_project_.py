@@ -12,9 +12,13 @@ def fetch_bls_data():
 
     today = datetime.datetime.today() # Establishing a today's date for the start date and end date
 
+    if not os.path.exists('data'):
+        os.makedirs('data')
+    file_path = 'data/bls_data.csv'
+    
     # Prepping an if statement to run function on a certain day of the month
     if today.day == 17:
-
+    
       # Establishing what series IDs will be fetched (only doing 4 to ensure a clean visual)
       series_ids = ['CES0000000001','LNS14000000','CUUR0000SA0','WPUFD4'] #Nonfarm Payroll, Unemployment, CPI-U, PPI
 

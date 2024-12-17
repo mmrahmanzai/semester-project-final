@@ -30,3 +30,14 @@ jobs:
       - name: Run Python script
         run: |
           python semester_project_.py
+          
+    # Step 5: Commit and push the updated CSV file
+      - name: Commit and push updated data
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add bls_data.csv
+          git commit -m "Update BLS data"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
